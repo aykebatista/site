@@ -1,0 +1,129 @@
+﻿<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EXERCICIO3</title>
+
+    <style type="text/css">
+        * {
+            margin: 5px;
+            padding: 0px;
+        }
+
+        body {
+            font: 14px 'Comic Sans MS';
+        }
+
+        #geral {
+            width: 1200px;
+            height: 650px;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            margin: 12px auto 1px auto;
+        }
+
+        .botao {}
+
+        .contaner {
+            position: relative;
+        }
+
+
+        .login-header {
+            margin-left: 10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="geral">
+        <div class="quadroInterno">
+            <div id="all">
+                <div id="login-box">
+                    <div id="login-header" class="login-header">
+                        Boletim:
+                    </div>
+                    <div id="login-inputs">
+                        <input type="text" placeholder="Nome do aluno" name=aluno>
+                        <br />
+                        <input type="number" max="10" min="1" placeholder="Nota 1" id=nota1 style="width:50px;">
+                        <br />
+                        <input type="number" max="10" min="1" placeholder="Nota 2" id=nota2 style="width:50px;">
+                        <br />
+                        <input type="number" max="10" min="1" placeholder="Nota 3" id=nota3 style="width:50px;">
+                        <br />
+                    </div>
+                    <div id="enviar">
+                        <input type="button" onclick="Parcelas()" class="botao" value="Calcula média">
+                        <label id="lblMensagem"></label>
+                        <label id="lblResult"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function Parcelas() {
+
+            var done = 0;
+            
+            var nota1 = 0;
+            nota1 = parseFloat(document.getElementById('nota1').value);
+            
+            var nota2 = 0;
+            nota2 = parseFloat(document.getElementById('nota2').value);
+            
+            var nota3 = 0;
+            nota3 = parseFloat(document.getElementById('nota3').value);
+
+            var media = 0;
+
+            if (nota1 != "" && nota2 != "" && nota3 != "") {
+
+                media = (nota1 + nota2 + nota3) / 3;
+
+                if (media >= 7)
+                {
+                    document.getElementById('lblMensagem').innerHTML = 'APROVADO MÉDIA:';
+                    document.getElementById('lblMensagem').style.color = "darkgreen";
+
+                    document.getElementById('lblResult').innerHTML = media.toFixed(2);
+                }
+                
+                else if ((media >= 5 || media < 7))
+                {
+                    document.getElementById('lblMensagem').innerHTML = 'RECUPERAÇÃO MÉDIA ';
+                    document.getElementById('lblMensagem').style.color = "darkorange";
+
+                    document.getElementById('lblResult').innerHTML = media.toFixed(2);
+                }
+
+                if (media < 5)
+                {
+                    document.getElementById('lblMensagem').innerHTML = 'REPROVADO PELO RODRIGO MÉDIA ';
+                    document.getElementById('lblMensagem').style.color = "darkred";
+
+                    document.getElementById('lblResult').innerHTML = media.toFixed(2);
+                }
+
+                done = 1;
+
+                }
+
+                if (done == 0)
+                {
+                document.getElementById('lblMensagem').innerHTML = 'Digite todas as notas para fazer a média!';
+                document.getElementById('lblMensagem').style.color = "darkblue";
+                }
+        }
+
+    </script>
+
+</body>
+
+</html>

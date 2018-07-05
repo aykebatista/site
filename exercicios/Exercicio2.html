@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>EXERCICIO2</title>
+
+    <style type="text/css">
+        body {
+            font-size: 20px;
+            font-family: 'Comic Sans MS';
+            position: center;
+            background: beige;
+        }
+
+        h1 {
+            color: brown;
+            text-align: center;
+            font-size: 30px;
+            font-family: Comic Sans MS;
+        }
+
+        h2 {
+            color: darkgreen;
+            text-align: center;
+            font-size: 15px;
+            font-family: Arial;
+        }
+
+        h3 {
+            color: darkblue;
+            flood-color: red;
+            text-align: center;
+            font-size: 25px;
+            font-family: Calibri;
+        }
+
+        #geral {
+            width: 1200px;
+            height: 750px;
+            display: block;
+            position: relative;
+            overflow: all;
+            text-align: center;
+            margin: 12px auto 20px auto;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="geral">
+
+        <h1><strong>BONECO DO RODRIGO</strong></h1>
+
+        <div style="text-align: center"><img width="300px" vspace="5px" hspace="5px" border="10px" src="Exercicio2.jpg"></div>
+        <h2>Sucesso nos Anos 80, <u>Boneco do Rodrigo</u> é a grande sensação do momento da Fábrica da Estrela.</h2>
+
+        <hr/>
+        
+        <div style="color: red"><strong>P R O M O Ç Ã O</strong></div>
+
+        <h3>Preço Unitário: <u>R$75,00</u></h3>
+
+        <hr/>
+
+        <input type="number" max="10" min="1" placeholder="até 10x" id=parcelas>
+        <!-- Força inserir a quantidade manualmente -->
+
+        <br/>
+
+        <input type="button" onclick="Parcelas()" class="botao" value=Calcular>
+
+        <label id="lblMensagem"></label>
+
+        <label id="lblResult"></label>
+
+    </div>
+
+    <script>
+        function Parcelas() {
+
+            var done = 0;
+            var parcelas = 0;
+            parcelas = document.getElementById("parcelas").value;
+
+            var result = 0;
+
+            if (done == 0) {
+                document.getElementById('lblMensagem').innerHTML = 'Escolha o número de parcelas desejadas.';
+                document.getElementById('lblMensagem').style.color = "darkred";
+            }
+
+            if (parcelas != "") {
+                document.getElementById('lblMensagem').innerHTML = 'Valor da Parcela: R$';
+                document.getElementById('lblMensagem').style.color = "darkgreen";
+
+                result = 75 / parcelas;
+
+                document.getElementById('lblResult').innerHTML = result.toFixed(2); <!-- Casas decimais -->
+
+                done = 1;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
