@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>VERIFICA IDADE</title>
+</head>
+
+<body>
+    <label>INSIRA UMA IDADE</label>
+    <input type="number" max="110" min="1" id="idade">
+
+    <button type="button" onclick="VerificaIdade()" style="background-color: black;color:hotpink"> CLIQUE AQUI </button>
+
+    <p id="resultado"></p>
+    <script>
+        function VerificaIdade()
+        {
+            var idade;
+            idade = document.getElementById("idade").value;
+            if (idade >= 18) {
+                document.getElementById("resultado").innerHTML = "Acesso liberado!";
+                document.getElementById("resultado").style.color="green";
+            } else {
+                document.getElementById("resultado").innerHTML = "Acesso proibido, espere mais alguns anos!";
+                document.getElementById("resultado").style.color="red";
+            }
+        }
+        </script>
+    </body>
+</html>
